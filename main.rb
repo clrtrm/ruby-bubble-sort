@@ -3,17 +3,18 @@
 
 # SOLUTION
 def bubble_sort(numbers)
-  numbers.each_with_index do |number, index|
-    next_num = numbers[index + 1] 
+  numbers.length.times do 
+    numbers.each_with_index do |number, index|
+      next_num = numbers[index + 1]
 
-    if next_num && number > next_num
-      numbers[index] = next_num
-      numbers[index + 1] = number
+      if next_num && number > next_num
+        numbers[index] = next_num
+        numbers[index + 1] = number
+      end
     end
   end
-
   numbers
 end
 
 # TEST
-puts bubble_sort([4,3,78,2,0,2])
+p bubble_sort([4, 3, 78, 2, 0, 2]) # [0, 2, 2, 3, 4, 78]
