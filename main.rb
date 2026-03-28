@@ -3,16 +3,20 @@
 
 # SOLUTION
 def bubble_sort(numbers)
-  numbers.length.times do 
-    numbers.each_with_index do |number, index|
+  loop do 
+    swapped = false
+
+    numbers.each_with_index do |cur_num, index|
       next_num = numbers[index + 1]
 
-      if next_num && number > next_num
-        numbers[index] = next_num
-        numbers[index + 1] = number
+      if next_num && cur_num > next_num
+        numbers[index], numbers[index + 1] = numbers[index + 1], numbers[index]
+        swapped = true
       end
     end
+    break unless swapped
   end
+
   numbers
 end
 
